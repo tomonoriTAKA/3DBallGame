@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ClearFlag : MonoBehaviour {
 
@@ -14,9 +15,13 @@ public class ClearFlag : MonoBehaviour {
 
 			//Playerを消す
 			Destroy (collider.gameObject);
+			string presentStage = SceneManager.GetActiveScene().name;
+			Debug.Log (presentStage);
+
+			SceneManager.LoadScene ("Stage2");
 
 			Debug.Log ("GameClear!");
-			
+
 		}
 
 	}

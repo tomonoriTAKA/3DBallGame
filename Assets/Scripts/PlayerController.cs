@@ -12,12 +12,7 @@ public class PlayerController : MonoBehaviour {
 	const float Gravity = 9.8f;
 	public float gravityScale = 1.0f;
 
-	void Start()
-	{
-		count = 0;
-//		SetCountText ();
-//		winText.text = "";
-	}
+
 	void FixedUpdate()
 	{
 		if (Application.isEditor) {
@@ -35,20 +30,5 @@ public class PlayerController : MonoBehaviour {
 			Physics.gravity = Gravity * vector.normalized * gravityScale;
 		}
 	}
-	// 衝突した時の動作
-	void OnTriggerEnter(Collider other)
-	{
-		if (other.gameObject.tag == "Pick Up") {
-			other.gameObject.SetActive (false); // オブジェクトを無効化（非表示）
-			count = count + 1;
-			SetCountText ();
-		}
-	}
-	void SetCountText()
-	{
-		countText.text = "Count: " + count.ToString ();
-		if (count == 8) {
-			winText.text = "YOU WIN";
-		}
-	}
+
 }
